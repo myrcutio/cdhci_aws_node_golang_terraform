@@ -23,6 +23,6 @@ RUN apk --no-cache --update add \
       && \
     rm -rf .terraform \
       && \
-    wget https://github.com/go-swagger/go-swagger/releases/download/v0.19.0/swagger_darwin_amd64 -O /usr/local/bin/swagger \
+    wget https://github.com/go-swagger/go-swagger/releases/download/v0.19.0/swagger_linux_amd64 -O /usr/local/bin/swagger \
       && \
     chmod +x /usr/local/bin/swagger
