@@ -21,4 +21,10 @@ RUN apk --no-cache --update add \
       && \
     wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip -O tmp.zip && unzip tmp.zip -d /usr/local/bin/; rm tmp.zip \
       && \
-    rm -rf .terraform
+    rm -rf .terraform \
+      && \
+    download_url=$(curl -s https://api.github.com/repos/go-swagger/go-swagger/releases/latest | \
+    jq -r '.assets[] | select(.name | contains("'"$(uname | tr '[:upper:]' '[:lower:]')"'_amd64")) | .browser_download_url') \
+    curl -o /usr/local/bin/swagger -L'#' "$download_url" \
+      && \ 
+    chmod +x /usr/local/bin/swagger
