@@ -15,8 +15,7 @@ RUN apk --no-cache --update add \
         nodejs-npm \
         && \
     pip install --upgrade awscli==1.16.20 s3cmd==2.0.1 python-magic && \
-    apk -v --purge del py-pip && \
-    rm /var/cache/apk/* \
+    apk -v --purge del py-pip \
       && \
     wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip -O tmp.zip && unzip tmp.zip -d /usr/local/bin/; rm tmp.zip \
       && \
