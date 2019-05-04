@@ -2,6 +2,7 @@ FROM golang:1.12.4-alpine
 
 RUN apk --no-cache --update add \
         bash \
+        curl \
         git \
         openssh \
         jq \
