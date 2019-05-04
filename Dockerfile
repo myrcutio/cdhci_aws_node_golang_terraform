@@ -2,7 +2,6 @@ FROM golang:1.12.4-alpine
 
 RUN apk --no-cache --update add \
         bash \
-        curl \
         git \
         openssh \
         jq \
@@ -24,7 +23,6 @@ RUN apk --no-cache --update add \
       && \
     rm -rf .terraform \
       && \
-    download_url=$(curl -s https://api.github.com/repos/go-swagger/go-swagger/releases/latest | jq -r '.assets[] | select(.name | contains("'"$(uname | tr '[:upper:]' '[:lower:]')"'_amd64")) | .browser_download_url') \
-    curl -o /usr/local/bin/swagger -L'#' "$download_url" \
-      && \ 
+    wget https://github.com/go-swagger/go-swagger/releases/download/v0.19.0/swagger_darwin_amd64 -O /usr/local/bin/swagger \
+      && \
     chmod +x /usr/local/bin/swagger
