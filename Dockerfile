@@ -13,8 +13,8 @@ RUN apk --no-cache --update add \
         groff \
         less \
         mailcap \
-        nodejs=8.12.0 \
-        nodejs-npm=6.4.1 \
+        nodejs \
+        nodejs-npm \
         && \
     pip install --upgrade awscli==1.16.20 s3cmd==2.0.1 python-magic && \
     apk -v --purge del py-pip \
